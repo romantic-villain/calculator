@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>basic calculator</title>
+    <link rel="stylesheet" href="./calcu.css">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAllBMVEX/lgDGx8v///8AAAD/hQD/kQC3bAC9vsPDxMn/sD+OjpH/s0gxMTInJyhjY2X/rjz/mQj/8uH/4bf/iQD/jgD/oyH/y4H/5L/92rL8wn/9iAn6nTT/+/b6sVv+9en6p0n/qS/8rVT7kBi2XgD7z5v8lyj/w2+DTQD/7tVWV1hPT1HAvbx7fH7MxLzg2tPr5+LEvbbTzsqxl3THAAADh0lEQVR4nO3be1OjMBAA8FwIgtVTU+iVV+lTPa20+v2/3AV7tkCTkGyIvZvJ/lcH2R95MczsIsyNMkmX+SojfbH2vHXvRdkqX6ZJyc+EOH+jaU5IFMV+f1x53pXCZXEUEZKnVAmQzAmJfaQWNUDxUj8mZJ70ApKcRKrZ9QC1ISJ5l9AG0DmJ1e+nDWARkzkVAzaZztODAGwUso0AUMw0Hx8EqAdhVvAAZU40Hx8IQD7Jy3MAfYy07wQEIBQ90i6gBOWHApigbAOKHJQfDEBRXrQAMwK6DRyAyKwJ2ADWnyHAJ5sTgGba+88YgOKMHgFz2AIwA6Bo/gVIoBNgBvBJ8heQQyfADIDi/ABIgDvAGIDqIUAmK8AUUK8ChKlsBSym04U9gE8oA6SyGbjG+N4eAJGUAaRL0DKALUNUSvegZYBPSiTfA5YBbB+gVLoHbAOiFC2lp5BtQLxE8mPQOiBHq8sCViiTvohsA/wMyd+E1gGEB1hcH+MJ46fTr4Ua4P5GEOfPwgdMsSDGaoDfov+f/i+Ai09BIy6zCB3AARzAAf4lgN0PEwVAXziAAziAAziAAziAAwwAWF+ZxLPnPRvdYI28C8flAcZTcDcyCvNFOPphEGHgAA7gAA7gAA7gAA7gACLAQ/d39w+WARP6q51/POYKrAGmGDcFD+P27+8YgWbGOr/GCLzcCuJFHdASiPPzAbeij5BbDUBDIMnPB7z+FMSrDuAokOW3ew4cBNL8lg+iT4E0v+2TcPJZcijJb/0oXtTllpL8tgH1/AtOoG8B1PmnVCqwCjis/4lUMABAWMbztf+kAmPAVljIdNr/MgEXEAaCCM8vfReVcjXPH4nA+F1QCYrZ2uefWGAM+BCU83XOv1rwpAx4uxPE29mlwU5Q0HhTtM+/CaUTZYBGBHtRSed95/ybcPObAsKg6Clq7QtTQNVX1msZEOz6CpvtAtgMDFDabQKohihuNwAE+yHK++GAegAGaHAAA8J6AAZo8QADgmqYJhcoINwWw7T5AAEhOwNOAJNGJyAg+MBNgEGrFwxwWAB4iGY3ECCoig4A3u4HAQTbY8ujecOjPiA8Pf8QLZ/agPBr/XUBwKZXTUAYbHdYBAC1/eoBWsN/DmDvhUfdxmcNQMjS7zsJzVu/VQEs+3l6WfN7rNj8PgpVgn0XVbuCk4wHwFrt/yPRh9gxtu/Vx27Py87iD9XWaP74+ApqAAAAAElFTkSuQmCC">
+    <style>
+        body{
+                background-image: url(data:image/jpeg;base64,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);
+
+        }
+input{
+    width: 90px;
+    height: 20px;
+}
+button{
+    background-color: aquamarine;
+}
+button:hover{
+    background-color: pink;
+}
+.ar{
+    background-color: bisque;
+}
+.sym{
+    background-color: darkkhaki;
+}
+.frame{
+    border: 2px solid aqua;
+    background-color: aqua;
+    width: min-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+ }
+ .f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+ }
+ .s{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+ }
+ .t{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+ }
+ .fo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+ }
+ .fi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+ }
+
+    </style>
+</head>
+<body bgcolor="black">
+    <div class = "frame">
+        <input type="number" placeholder="output" id="output" readonly>
+        <input type="text" placeholder="input" id="value" readonly>
+        <div class="f">
+            <button onclick="one()">1</button>
+            <button onclick="two()">2</button>
+            <button onclick="three()">3</button>
+            <button onclick="add()" class="ar">+</button>
+        </div>
+        <div class="s">
+            <button onclick="four()">4</button>
+            <button onclick="five()">5</button>
+            <button onclick="six()">6</button>
+            <button onclick="sub()" class="ar">-</button>
+        </div>
+        <div class="t">
+            <button onclick="seven()">7</button>
+            <button onclick="eight()">8</button>
+            <button onclick="nine()">9</button>
+            <button onclick="multi()" class="ar">*</button>
+        </div>
+        <div class="fo">
+            <button onclick="zero()">0</button>
+            <button onclick="ok()" class="sym">enter</button>
+            <button onclick="div()" class="ar">/</button>
+        </div>
+        <div class="fi">
+            <button onclick="clr()" class="sym" id="c">clear</button>
+            <button onclick="dec()">.</button>
+            <button onclick="del()" class="sym">del</button>
+        </div>
+    </div>
+    
+    <script>
+        function one()
+{
+    var x = document.getElementById("value").value
+    var out = x + '1'
+    document.getElementById("value").value = out
+}
+function two()
+{
+    var x = document.getElementById("value").value
+    var out = x + '2'
+    document.getElementById("value").value = out
+}
+function three()
+{
+    var x = document.getElementById("value").value
+    var out = x + '3'
+    document.getElementById("value").value = out
+}
+function four()
+{
+    var x = document.getElementById("value").value
+    var out = x + '4'
+    document.getElementById("value").value = out
+}
+function five()
+{
+    var x = document.getElementById("value").value
+    var out = x + '5'
+    document.getElementById("value").value = out
+}
+function six()
+{
+    var x = document.getElementById("value").value
+    var out = x + '6'
+    document.getElementById("value").value = out
+}
+function seven()
+{
+    var x = document.getElementById("value").value
+    var out = x + '7'
+    document.getElementById("value").value = out 
+}
+function eight()
+{
+    var x = document.getElementById("value").value
+    var out = x + '8'
+    document.getElementById("value").value = out
+}
+function nine()
+{
+    var x = document.getElementById("value").value
+    var out = x + '9'
+    document.getElementById("value").value = out
+}
+function zero()
+{
+    var x = document.getElementById("value").value
+    var out = x + '0'
+    document.getElementById("value").value = out
+}
+
+function add()
+{
+    var x = document.getElementById("value").value
+    var out = x + '+'
+    document.getElementById("value").value = out
+}
+function sub()
+{
+    var x = document.getElementById("value").value
+    var out = x + '-'
+    document.getElementById("value").value = out
+}
+function div()
+{
+    var x = document.getElementById("value").value
+    var out = x + '/'
+    document.getElementById("value").value = out
+}
+function multi()
+{
+    var x = document.getElementById("value").value
+    var out = x + '*'
+    document.getElementById("value").value = out
+}
+function ok()
+{
+    document.getElementById("output").value = eval(document.getElementById("value").value)
+}
+function clr()
+{
+    document.getElementById("output").value = null
+    document.getElementById("value").value = null
+}
+function dec()
+{
+    var x = document.getElementById("value").value
+    var out = x + '.'
+    document.getElementById("value").value = out
+}
+function del()
+{
+    var x = document.getElementById("value").value
+    document.getElementById("value").value = x.slice(0,-1)
+}
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
